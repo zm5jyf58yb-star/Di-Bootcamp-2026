@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="GET" id="form">
+        <div>
+            <label for="name">Name: <input type="text" id="name" name="name" required></label><br>
+        
+            <label for="message">Comments:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br>
+            <input type="submit" value="Send">
+        </div> 
+        <h3>Output:</h3>
+    <!-- 2. The DOM Container to display the output -->
+         <pre id="Output"></pre> 
+    </form>
+    <script>
+        const form = document.getElementById('form');
+        const outPut = document.getElementById('Output');
+
+        form.addEventListener('submit', function(event){
+            event.preventDefault();
+
+            const nameValue = document.getElementById('name').value;
+            const messageValue = document.getElementById('message').value;
+
+            const formData = {
+                Name: nameValue,
+                Message: messageValue
+            }
+            const josnString = JSON.stringify(formData);
+            
+            outPut.textContent = josnString
+        });
+    </script>
+
+</body>
+</html>
+
