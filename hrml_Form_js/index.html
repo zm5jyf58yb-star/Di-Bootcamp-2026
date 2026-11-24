@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form to JSON DOM</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        form { margin-bottom: 20px; }
+        div { margin-bottom: 10px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. The HTML Form -->
+    <form id="userForm">
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+        </div>
+        <button type="submit">Send</button>
+    </form>
+
+    <h3>Output:</h3>
+    <!-- 2. The DOM Container to display the output -->
+    <pre id="jsonOutput"></pre>
+
+    <!-- 3. The JavaScript Processing Logic -->
+    <script>
+        const form = document.getElementById('userForm');
+        const outputElement = document.getElementById('jsonOutput');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Retrieve values from the inputs
+            const firstNameValue = document.getElementById('firstName').value;
+            const lastNameValue = document.getElementById('lastName').value;
+
+            // Construct the JavaScript data object
+            const formData = {
+                name: firstNameValue,
+                lastName: lastNameValue
+            };
+
+            // Convert the object to a pretty-printed JSON string (using 2 spaces)
+            const jsonString = JSON.stringify(formData, null, 2);
+
+            // Append the JSON string to the DOM
+            outputElement.textContent = jsonString;
+        });
+    </script>
+
+</body>
+</html>
