@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Custom font target */
+    background: linear-gradient(135deg, #0f2027, #3287a3, #146d93);
+    background-image: url('card-pattern.png');
+    color: #f1f4f1;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #fe5900f2;
+    text-shadow: 0 0 10px rgba(1, 11, 11, 0.5);
+}
+
+/* Search input field wrap block styles */
+.search-box-container {
+    margin-bottom: 10px;
+}
+
+#search-box {
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #000303;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgb(12, 1, 1);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#search-box:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.7);
+}
+
+/* Flexbox responsive main layout wrapper */
+#robot-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Target card structural configuration */
+.robot-card {
+    background: rgba(78, 78, 234, 0.652);
+    background-image: url('circuit-pattern.png');
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    width: 260px;
+    box-shadow: 0 8px 32px rgba(240, 8, 8, 0.3);
+    backdrop-filter: blur(4px);
+    transition: transform 0.25s ease;
+}
+
+.robot-card:hover {
+    transform: scale(1.04);
+    border-color: #fe0000;
+}
+
+.robot-card img {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.robot-card h2 {
+    font-size: 1.3rem;
+    color: #00fe5d;
+    margin-bottom: 10px;
+}
+
+.robot-card p {
+    font-size: 0.9rem;
+    color: #f2f209;
+}
