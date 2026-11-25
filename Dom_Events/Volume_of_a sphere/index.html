@@ -1,0 +1,54 @@
+<!doctype html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="utf-8"> 
+        <title>Volume of a Sphere</title> 
+        <style>  
+            body {
+                padding-top:30px;
+            } 
+            label, input {
+                display:block;
+                margin-bottom: 10px;
+            }  
+        </style> 
+    </head> 
+    <body> 
+        <p>Input radius value and get the volume of a sphere.</p> 
+        <form id="MyForm"> 
+            <label for="radius">Radius</label>
+            <input type="text" name="radius" id="radius" required> 
+            
+            <label for="volume">Volume</label>
+            <input type="text" name="volume" id="volume"> 
+            
+            <input type="submit" value="Calculate" id="submit">    
+        </form> 
+
+        <script>
+            // 1. Target the form by its ID
+            const myForm = document.getElementById("MyForm");
+
+            // 2. Wait for the user to click the "Calculate" submit button
+            myForm.addEventListener("submit", function(event) {
+                
+                // Stop the page from refreshing when the form submits
+                event.preventDefault();
+
+                // 3. Grab the typed radius value from the input field
+                const inputRadius = document.getElementById("radius").value;
+
+                // 4. Convert the text into a real decimal number
+                const r = Number(inputRadius);
+
+                // 5. Calculate the volume step-by-step using: (4/3) * pi * r * r * r
+                const pi = Math.PI;
+                const totalVolume = (4 / 3) * pi * r * r * r;
+
+                // 6. Push the answer back into the volume input field box
+                // .toFixed(2) rounds the answer to 2 decimal places (e.g., 12.34)
+                document.getElementById("volume").value = totalVolume.toFixed(2);
+            });
+        </script>
+    </body> 
+</html>
